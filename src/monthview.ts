@@ -467,9 +467,12 @@ export class MonthViewComponent implements ICalendarComponent, OnInit, OnChanges
     }
 
     getHighlightClass(date:IMonthViewRow):string {
-        let className = '';
+        let className = 'day-' + date.date.getFullYear() + '-'+  date.date.getMonth() +'-' + date.date.getDay() ;
 
         if (date.hasEvent) {
+            if (className) {
+                className += ' ';
+            }
             if (date.secondary) {
                 className = 'monthview-secondary-with-event';
             } else {
